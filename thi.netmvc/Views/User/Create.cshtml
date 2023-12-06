@@ -1,0 +1,47 @@
+﻿@model thi.netmvc.Models.UserModel
+@{
+}
+<div class="container">
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @*@Html.HiddenFor(m => m.Id)*@
+        <div class="mb-3">
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName)
+            <p>
+                @Html.ValidationMessageFor(m => m.UserName,"",
+            new {@class="text-danger" })
+            </p>
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+            <p>
+                @Html.ValidationMessageFor(m => m.Email,"",
+            new {@class="text-danger" })
+            </p>
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Password)
+            @Html.TextBoxFor(m => m.Password)
+            <p>
+                @Html.ValidationMessageFor(m => m.Password,"",
+            new {@class="text-danger" })
+            </p>
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Tel)
+            @Html.TextBoxFor(m => m.Tel)
+            <p>
+                @Html.ValidationMessageFor(m => m.Tel,"",
+            new {@class="text-danger" })
+            </p>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>

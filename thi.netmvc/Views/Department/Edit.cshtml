@@ -1,0 +1,47 @@
+﻿@model thi.netmvc.Models.DepartmentModel
+@{
+}
+<div class="container">
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @*@Html.HiddenFor(m => m.Id)*@
+        <div class="mb-3">
+            @Html.LabelFor(m => m.DepartmentName)
+            @Html.TextBoxFor(m => m.DepartmentName)
+            <p>
+                @Html.ValidationMessageFor(m => m.DepartmentName,"",
+            new {@class="text-danger" })
+            </p>
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(m => m.DepartmentCode)
+            @Html.TextBoxFor(m => m.DepartmentCode)
+            <p>
+                @Html.ValidationMessageFor(m => m.DepartmentCode,"",
+            new {@class="text-danger" })
+            </p>
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Location)
+            @Html.TextBoxFor(m => m.Location)
+            <p>
+                @Html.ValidationMessageFor(m => m.Location,"",
+            new {@class="text-danger" })
+            </p>
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Number)
+            @Html.TextBoxFor(m => m.Number)
+            <p>
+                @Html.ValidationMessageFor(m => m.Number,"",
+            new {@class="text-danger" })
+            </p>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>

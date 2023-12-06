@@ -1,0 +1,42 @@
+﻿@model List<thi.netmvc.Entities.Department_Tbl>
+@{
+
+}
+<table class="table table-success table-striped">
+
+
+    <thead>
+        <tr>
+            <th scope="col">IDepartment</th>
+            <th scope="col">DepartmentName</th>
+            <th>DepartmentCode</th>
+            <th scope="col">Location </th>
+            <th scope="col">Number </th>
+            <th>
+                <button type="button" class="btn btn-primary">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Department_Tbl" asp-action="Create">Add New</a>
+                </button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IDepartment</td>
+                <td>@item.DepartmentName</td>
+                <td>@item.DepartmentCode</td>
+                <td>@item.Location</td>
+                <td>@item.Number</td>
+                <td>
+                    <button type="button" class="btn btn-success"> <a asp-controller="Department_Tbl" asp-action="Edit" asp-route-id="@item.IDepartment">Edit</a></button>
+                    <button type="button" class="btn btn-danger">
+                        <a onclick="return confirm('Delete employee @item.DepartmentName')"
+                           asp-controller="User" asp-action="Delete"
+                           asp-route-id="@item.IDepartment">Delete</a>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
